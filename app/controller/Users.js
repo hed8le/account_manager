@@ -15,7 +15,7 @@ Ext.define('AM.controller.Users', {
 	//Dem Controller müssen auch die Stores bekannt sein. Warum?
 	stores: ['Users'],
 
-	//Dem Controller müssen auch die Model bekannt sein. Warum?
+	//Dem Controller müssen auch die Models bekannt sein. Warum?
 	models: ['User'],
 
 	//debugger;
@@ -25,8 +25,11 @@ Ext.define('AM.controller.Users', {
 			//Event-Handler = editUser
 
 			//Beim Eintreten des Events "itemdblclick" soll der Event-Handler "editUser" ausgeführt werden
-			'userlist': {
+			'viewport > userlist': {
 				itemdblclick: this.editUser
+			},
+			'useredit button[action=save]': {
+				click: this.updateUser
 			}
 
 			//ComponentQuery selector:
@@ -43,6 +46,10 @@ Ext.define('AM.controller.Users', {
 		
 		//Every Component in Ext JS 4 has a "down"-Function
 		view.down('form').loadRecord(record);
+	},
+
+	updateUser: function(button){
+		console.log('Dennis clicked the Save button!');
 	}
 
 	//grün sind immer Funktionen (synonym wird auch Methode verwendet).
