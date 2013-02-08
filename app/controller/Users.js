@@ -49,7 +49,17 @@ Ext.define('AM.controller.Users', {
 	},
 
 	updateUser: function(button){
-		console.log('Dennis clicked the Save button!');
+		//console.log('Dennis clicked the Save button!');
+		var win = button.up('window'),
+		form = win.down('form'),
+		record = form.getRecord(),
+		values = form.getValues();
+
+		record.set(values);
+		win.close();
+
+		//synchronize the store after editing the record
+		this.getUsersStore().sync();
 	}
 
 	//grün sind immer Funktionen (synonym wird auch Methode verwendet).

@@ -4,7 +4,7 @@
 
 Ext.define('AM.view.user.Edit', {
 	extend: 'Ext.window.Window',//Diese View ist ein Window. AM.view.user.Edit ist eine Subklasse von Ext.window.Window
-	alias: 'widget.useredit',
+	alias: 'widget.useredit',//Der xtype "useredit" wird angelegt für die View
 	title: 'Edit User',
 	layout: 'fit',
 	autoShow: true,
